@@ -1,3 +1,4 @@
+import 'package:buddha/UI%20Helpers/card_details.dart';
 import 'package:buddha/UI%20Helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -17,16 +18,21 @@ class _CardForFortuneTellersState extends State<CardForFortuneTellers> {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Container(
-          width: screenWidth / 2.5,
-          height: screenlHeight / 5,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              // color: Colors.amber,
-              image: const DecorationImage(
-                  fit: BoxFit.cover,
-                  // TODO: Firebase'den yüksek puanlı olanlar arasından random çekilecek.
-                  image: AssetImage("assetss/teller.jpg"))),
+        InkWell(
+          onTap: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CardDetailScreen(),
+          )),
+          child: Container(
+            width: screenWidth / 2.5,
+            height: screenlHeight / 5,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                // color: Colors.amber,
+                image: const DecorationImage(
+                    fit: BoxFit.cover,
+                    // TODO: Firebase'den yüksek puanlı olanlar arasından random çekilecek.
+                    image: AssetImage("assetss/teller.jpg"))),
+          ),
         ),
         SizedBox(
           height: 10,
