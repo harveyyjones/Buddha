@@ -1,4 +1,4 @@
-import 'package:buddha/UI%20Helpers/card_details.dart';
+import 'package:buddha/UI/card_details.dart';
 import 'package:buddha/UI%20Helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -31,7 +31,7 @@ class _CardForFortuneTellersState extends State<CardForFortuneTellers> {
                 image: const DecorationImage(
                     fit: BoxFit.cover,
                     // TODO: Firebase'den yüksek puanlı olanlar arasından random çekilecek.
-                    image: AssetImage("assetss/teller.jpg"))),
+                    image: AssetImage("assetss/teacherman.jpg"))),
           ),
         ),
         SizedBox(

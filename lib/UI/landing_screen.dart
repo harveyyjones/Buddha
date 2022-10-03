@@ -1,12 +1,9 @@
 import 'dart:ui';
 
-import 'package:buddha/UI%20Helpers/blur_screen_maker.dart';
 import 'package:buddha/UI%20Helpers/constants.dart';
 import 'package:buddha/UI/login_screen.dart';
 import 'package:buddha/UI/register_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LandingScreen extends StatefulWidget {
   LandingScreen({Key? key}) : super(key: key);
@@ -21,12 +18,16 @@ class _LandingScreenState extends State<LandingScreen> {
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assetss/stars.png"), fit: BoxFit.fill)),
+              image: AssetImage("assetss/clouds.jpg"), fit: BoxFit.fill)),
       child: Column(children: [
         SizedBox(
           height: 180,
         ),
-        Image(image: AssetImage("assetss/landingFirstTitle.png")),
+        Image(
+            image: AssetImage(
+              "assetss/landingFirstTitle.png",
+            ),
+            color: Colors.black),
         SizedBox(
           height: 70,
         ),
@@ -34,6 +35,7 @@ class _LandingScreenState extends State<LandingScreen> {
           image: AssetImage(
             "assetss/secondLandingTitle.png",
           ),
+          color: Colors.black,
           fit: BoxFit.fill,
           height: screenlHeight / 25,
           width: screenWidth / 1.3,

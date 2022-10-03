@@ -32,7 +32,7 @@ class BlueScreenMaker extends StatelessWidget {
             width: 2.w,
           ),
         ),
-        padding: EdgeInsets.only(top: 240.h, right: 20.w, left: 20.w),
+        padding: EdgeInsets.only(top: 50.h, right: 20.w, left: 20.w),
         child: child,
       ),
     );

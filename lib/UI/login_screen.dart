@@ -9,7 +9,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'forgot_password_screen.dart';
@@ -53,13 +52,13 @@ class _LoginPageState extends State<LoginPage> {
                   Column(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 95.h),
+                        padding: EdgeInsets.only(top: 55.h),
                         child: ClipRRect(
                             borderRadius: BorderRadius.circular(16),
                             child: BlueScreenMaker(
                               xAxis: 15.0,
                               yAxis: 15.0,
-                              height: screenlHeight / 1.5,
+                              height: screenlHeight / 1.7,
                               width: screenWidth / 1.2,
                               child: _buildForm(context),
                             )),
@@ -82,8 +81,18 @@ class _LoginPageState extends State<LoginPage> {
         keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
           children: [
+            Text("Login",
+                style: GoogleFonts.poppins(
+                  fontSize: 30.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black54,
+                )),
+            SizedBox(
+              height: screenlHeight / 20,
+            ),
             _buildEmailField(),
             SizedBox(
               height: 16.h,
