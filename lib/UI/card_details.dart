@@ -11,6 +11,8 @@ class CardDetailScreen extends StatefulWidget {
 }
 
 class _CardDetailScreenState extends State<CardDetailScreen> {
+  String commentText =
+      "With hope in your heart and you'll never walk alone aoskaksokaoskaoooooooooooooossaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,8 +121,57 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
 // ******* ÖDEME BUTONU **********
               Row(
                 children: [
-                  ElevatedButton(onPressed: () {}, child: Text("Book"))
+                  SizedBox(
+                    width: screenWidth / 11,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: screenlHeight / 45),
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "Book",
+                        style: TextStyle(
+                            fontSize: 30.sp,
+                            fontFamily: fontFamilyCambria,
+                            fontWeight: FontWeight.w700),
+                      ),
+                      style: ButtonStyle(
+                        fixedSize: MaterialStateProperty.all(
+                            Size(screenWidth / 3, screenlHeight / 17)),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: screenWidth / 15,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: screenlHeight / 50),
+                    child: Text(
+                      "18\$ / Hour",
+                      style: TextStyle(
+                          fontSize: 35.sp,
+                          fontFamily: fontFamilyCambria,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ),
                 ],
+              ),
+              SizedBox(
+                height: screenlHeight / 27,
+              ),
+              Padding(
+                padding: EdgeInsets.only(right: screenWidth / 1.5),
+                child: Text(
+                  "Comments",
+                  softWrap: true,
+                  style: TextStyle(
+                      fontFamily: "Cambria",
+                      fontSize: 33.sp,
+                      color: Colors.grey),
+                ),
+              ),
+              Column(
+                children: [...sortComments()],
               )
             ],
           ),
@@ -134,7 +185,56 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
     int commentsCameFromFirebase = 100;
     List commentList = [];
     for (var i = 0; i < commentsCameFromFirebase; i++) {
-      commentList.add(Text("data"));
+      commentList.add(Column(children: [
+        Container(
+          //  color: Colors.black,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                    maxRadius: 47,
+                    minRadius: 20,
+                    backgroundImage: AssetImage("assetss/teacherman.jpg")),
+                SizedBox(
+                  width: screenWidth / 30,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 90,
+                    ),
+                    Container(
+                      //    color: Colors.amber,
+                      padding: EdgeInsets.only(right: screenWidth / 1.7),
+                      child: Text("Micheal",
+                          style: TextStyle(
+                              fontSize: 30.sp, fontFamily: "Calisto")),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: screenlHeight / 60),
+                      width: 540,
+
+                      //  color: Colors.blue,
+                      child: Text(
+                        commentText,
+                        maxLines: 15,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Color.fromARGB(255, 35, 33, 33),
+                            fontFamily: "Calisto"),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      ]));
     }
     return commentList;
   }

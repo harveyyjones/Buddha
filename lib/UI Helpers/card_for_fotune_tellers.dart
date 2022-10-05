@@ -65,7 +65,7 @@ class _CardForFortuneTellersState extends State<CardForFortuneTellers> {
                 allowHalfRating: false,
                 itemCount: 5,
                 itemPadding: EdgeInsets.symmetric(horizontal: 0),
-                itemBuilder: (context, _) => Icon(
+                itemBuilder: (context, _) => const Icon(
                   Icons.star,
                   color: Colors.amber,
                 ),
