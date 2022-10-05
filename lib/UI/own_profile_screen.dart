@@ -1,21 +1,24 @@
+import 'package:buddha/UI%20Helpers/bottom_bar.dart';
 import 'package:buddha/UI%20Helpers/constants.dart';
+import 'package:buddha/UI/own_profile_settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardDetailScreen extends StatefulWidget {
-  CardDetailScreen({Key? key}) : super(key: key);
+class OwnProfileScreen extends StatefulWidget {
+  OwnProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<CardDetailScreen> createState() => _CardDetailScreenState();
+  State<OwnProfileScreen> createState() => _OwnProfileScreenState();
 }
 
-class _CardDetailScreenState extends State<CardDetailScreen> {
+class _OwnProfileScreenState extends State<OwnProfileScreen> {
   String commentText =
       "With hope in your heart and you'll never walk alone aoskaksokaoskaoooooooooooooossaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomBar(selectedIndex: 1),
       body: Container(
         // width: screenWidth,
         // height: screenlHeight,
@@ -49,7 +52,7 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                 //  mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    width: screenWidth / 7,
+                    width: screenWidth / 11,
                   ),
                   Text(
                     "James Marlon",
@@ -69,18 +72,19 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                     ),
                   ),
                   SizedBox(
-                    width: 50,
+                    width: screenWidth / 28,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Container(
-                      width: 66,
-                      height: 66,
-                      child: Image(
-                        fit: BoxFit.fill,
-                        image: AssetImage("assetss/messageBubble.png"),
-                      ),
-                    ),
+                  SizedBox(
+                    width: screenWidth / 34,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileSettings(),
+                      ));
+                    },
+                    icon: Icon(Icons.settings),
+                    iconSize: 60,
                   )
                 ],
               ),
@@ -99,7 +103,7 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
 
               Padding(
                 padding: EdgeInsets.only(
-                    right: screenWidth / 2, left: screenWidth / 13),
+                    right: screenWidth / 5, left: screenWidth / 13),
                 child: Row(
                   children: [
                     RatingBar.builder(
@@ -125,47 +129,25 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                           fontSize: 33.sp,
                           color: colorOfTitleInHomeScreen),
                     ),
+                    SizedBox(
+                      width: screenWidth / 12,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: screenlHeight / 45, bottom: screenlHeight / 40),
+                      child: Text(
+                        "18\$ / Hour",
+                        style: TextStyle(
+                            fontSize: 35.sp,
+                            fontFamily: fontFamilyCambria,
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ),
                   ],
                 ),
               ),
 // ******* ÖDEME BUTONU **********
-              Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth / 11,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: screenlHeight / 45),
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Book",
-                        style: TextStyle(
-                            fontSize: 30.sp,
-                            fontFamily: fontFamilyCambria,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      style: ButtonStyle(
-                        fixedSize: MaterialStateProperty.all(
-                            Size(screenWidth / 3, screenlHeight / 17)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: screenWidth / 15,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: screenlHeight / 50),
-                    child: Text(
-                      "18\$ / Hour",
-                      style: TextStyle(
-                          fontSize: 35.sp,
-                          fontFamily: fontFamilyCambria,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ),
-                ],
-              ),
+
               SizedBox(
                 height: screenlHeight / 27,
               ),

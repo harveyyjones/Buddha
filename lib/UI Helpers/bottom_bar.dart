@@ -1,4 +1,5 @@
 import 'package:buddha/UI%20Helpers/constants.dart';
+import 'package:buddha/UI/own_profile_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -6,7 +7,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import '../UI/home_screen.dart';
 
 class BottomBar extends StatefulWidget {
-  const BottomBar({super.key});
+ int selectedIndex;
+
+  BottomBar({super.key, required this.selectedIndex});
 
   @override
   State<BottomBar> createState() => _BottomBarState();
@@ -14,19 +17,25 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   var _index = 0;
-
+  List _pagesToNavigateTo = [HomeScreen(), OwnProfileScreen()];
   @override
   Widget build(BuildContext context) {
     return Container(
       height: screenlHeight / 14,
       child: BottomNavigationBar(
           selectedFontSize: 0,
-          currentIndex: _index,
+          currentIndex: widget.selectedIndex,
           onTap: (value) {
             _index = value;
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => _pagesToNavigateTo[value],
+                ),
+                (route) => false);
             setState(() {});
           },
-          items: [
+          items: const [
             BottomNavigationBarItem(
                 activeIcon: Icon(
                   Icons.home,
