@@ -1,24 +1,25 @@
 import 'package:buddha/UI%20Helpers/bottom_bar.dart';
+import 'package:buddha/UI%20Helpers/calender.dart';
 import 'package:buddha/UI%20Helpers/constants.dart';
-import 'package:buddha/UI/own_profile_settings_screen.dart';
+import 'package:buddha/UI/UI%20For%20Tutors/own_profile_settings_screen_tutors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class OwnProfileScreen extends StatefulWidget {
-  OwnProfileScreen({Key? key}) : super(key: key);
+class OwnProfileScreenTutors extends StatefulWidget {
+  OwnProfileScreenTutors({Key? key}) : super(key: key);
 
   @override
-  State<OwnProfileScreen> createState() => _OwnProfileScreenState();
+  State<OwnProfileScreenTutors> createState() => _OwnProfileScreenTutorsState();
 }
 
-class _OwnProfileScreenState extends State<OwnProfileScreen> {
+class _OwnProfileScreenTutorsState extends State<OwnProfileScreenTutors> {
   String commentText =
       "With hope in your heart and you'll never walk alone aoskaksokaoskaoooooooooooooossaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomBar(selectedIndex: 1),
+      bottomNavigationBar: BottomBar(selectedIndex: 2),
       body: Container(
         // width: screenWidth,
         // height: screenlHeight,
@@ -52,7 +53,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                 //  mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   SizedBox(
-                    width: screenWidth / 11,
+                    width: screenWidth / 6,
                   ),
                   Text(
                     "James Marlon",
@@ -61,18 +62,8 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                         fontSize: 55.sp,
                         color: colorOfTitleInHomeScreen),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 30, top: 12),
-                    child: Text(
-                      "- USA",
-                      style: TextStyle(
-                          fontFamily: "Cambria",
-                          fontSize: 33.sp,
-                          color: colorOfTitleInHomeScreen),
-                    ),
-                  ),
                   SizedBox(
-                    width: screenWidth / 28,
+                    width: screenWidth / 8,
                   ),
                   SizedBox(
                     width: screenWidth / 34,
@@ -80,7 +71,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                   IconButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProfileSettings(),
+                        builder: (context) => ProfileSettingsTutors(),
                       ));
                     },
                     icon: Icon(Icons.settings),
@@ -102,8 +93,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
               ),
 
               Padding(
-                padding: EdgeInsets.only(
-                    right: screenWidth / 5, left: screenWidth / 13),
+                padding: EdgeInsets.only(right: 0, left: screenWidth / 13),
                 child: Row(
                   children: [
                     RatingBar.builder(
@@ -113,7 +103,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                       allowHalfRating: false,
                       itemCount: 5,
                       itemPadding: EdgeInsets.symmetric(horizontal: 0),
-                      itemBuilder: (context, _) => Icon(
+                      itemBuilder: (context, _) => const Icon(
                         Icons.star,
                         color: Colors.amber,
                       ),
@@ -130,7 +120,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                           color: colorOfTitleInHomeScreen),
                     ),
                     SizedBox(
-                      width: screenWidth / 12,
+                      width: screenWidth / 35,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -143,6 +133,44 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                             fontWeight: FontWeight.w500),
                       ),
                     ),
+                    SizedBox(
+                      width: screenWidth / 28,
+                    ),
+                    InkWell(
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CalendarApp(),
+                      )),
+                      child: Container(
+                        width: 150,
+                        height: 100,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.grey.shade500,
+                                  offset: const Offset(4, 4),
+                                  blurRadius: 10,
+                                  spreadRadius: 1),
+                              const BoxShadow(
+                                  color: Colors.white,
+                                  offset: const Offset(-4, -4),
+                                  blurRadius: 10,
+                                  spreadRadius: 1),
+                            ]),
+                        child: Center(
+                          child: Text(
+                            "      See \n Calender",
+                            softWrap: true,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 33,
+                              fontFamily: fontFamilyCambria,
+                            ),
+                          ),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -184,7 +212,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                     maxRadius: 47,
                     minRadius: 20,
                     backgroundImage: AssetImage("assetss/teacherman.jpg")),
@@ -196,7 +224,7 @@ class _OwnProfileScreenState extends State<OwnProfileScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SizedBox(
-                      height: 90,
+                      height: screenlHeight / 14,
                     ),
                     Container(
                       //    color: Colors.amber,

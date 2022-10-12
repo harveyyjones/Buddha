@@ -58,18 +58,8 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                         fontSize: 55.sp,
                         color: colorOfTitleInHomeScreen),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 30, top: 12),
-                    child: Text(
-                      "- USA",
-                      style: TextStyle(
-                          fontFamily: "Cambria",
-                          fontSize: 33.sp,
-                          color: colorOfTitleInHomeScreen),
-                    ),
-                  ),
                   SizedBox(
-                    width: 50,
+                    width: screenWidth / 6,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
@@ -99,7 +89,7 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
 
               Padding(
                 padding: EdgeInsets.only(
-                    right: screenWidth / 2, left: screenWidth / 13),
+                    right: screenWidth / 3.5, left: screenWidth / 10),
                 child: Row(
                   children: [
                     RatingBar.builder(
@@ -123,6 +113,19 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
                       style: TextStyle(
                           fontFamily: "Cambria",
                           fontSize: 33.sp,
+                          color: colorOfTitleInHomeScreen),
+                    ),
+                    SizedBox(
+                      width: screenWidth / 22,
+                    ),
+                    // TODO: Ayarlar kısmından dil seviyesi çekilip buraya atanacak. Kayıt olduktan sonrada sorulabilir.
+
+                    Text(
+                      " - Native",
+                      softWrap: true,
+                      style: TextStyle(
+                          fontFamily: "Cambria",
+                          fontSize: 40.sp,
                           color: colorOfTitleInHomeScreen),
                     ),
                   ],
@@ -196,52 +199,49 @@ class _CardDetailScreenState extends State<CardDetailScreen> {
     List commentList = [];
     for (var i = 0; i < commentsCameFromFirebase; i++) {
       commentList.add(Column(children: [
-        Container(
-          //  color: Colors.black,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                    maxRadius: 47,
-                    minRadius: 20,
-                    backgroundImage: AssetImage("assetss/teacherman.jpg")),
-                SizedBox(
-                  width: screenWidth / 30,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 90,
-                    ),
-                    Container(
-                      //    color: Colors.amber,
-                      padding: EdgeInsets.only(right: screenWidth / 1.7),
-                      child: Text("Micheal",
-                          style: TextStyle(
-                              fontSize: 30.sp, fontFamily: "Calisto")),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(top: screenlHeight / 60),
-                      width: 540,
+        Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                  maxRadius: 47,
+                  minRadius: 20,
+                  backgroundImage: AssetImage("assetss/teacherman.jpg")),
+              SizedBox(
+                width: screenWidth / 30,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  SizedBox(
+                    height: 90,
+                  ),
+                  Container(
+                    //    color: Colors.amber,
+                    padding: EdgeInsets.only(right: screenWidth / 1.7),
+                    child: Text("Micheal",
+                        style:
+                            TextStyle(fontSize: 30.sp, fontFamily: "Calisto")),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: screenlHeight / 60),
+                    width: 540,
 
-                      //  color: Colors.blue,
-                      child: Text(
-                        commentText,
-                        maxLines: 15,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 25,
-                            color: Color.fromARGB(255, 35, 33, 33),
-                            fontFamily: "Calisto"),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+                    //  color: Colors.blue,
+                    child: Text(
+                      commentText,
+                      maxLines: 15,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: 25.sp,
+                          color: const Color.fromARGB(255, 35, 33, 33),
+                          fontFamily: "Calisto"),
+                    ),
+                  )
+                ],
+              )
+            ],
           ),
         ),
       ]));

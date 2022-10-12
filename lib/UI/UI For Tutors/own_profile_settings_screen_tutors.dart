@@ -2,20 +2,20 @@ import 'package:buddha/UI%20Helpers/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../UI Helpers/personal_info_name_bar.dart';
+import '../../UI Helpers/personal_info_name_bar.dart';
 
-class ProfileSettings extends StatefulWidget {
-  const ProfileSettings({super.key});
+class ProfileSettingsTutors extends StatefulWidget {
+  const ProfileSettingsTutors({super.key});
 
   @override
-  State<ProfileSettings> createState() => _ProfileSettingsState();
+  State<ProfileSettingsTutors> createState() => _ProfileSettingsTutorsState();
 }
 
 TextEditingController nameController = TextEditingController(text: "Hailey");
 TextEditingController eMailController =
     TextEditingController(text: "haileyelse@gmail.com");
 
-class _ProfileSettingsState extends State<ProfileSettings> {
+class _ProfileSettingsTutorsState extends State<ProfileSettingsTutors> {
   var _selectedItem = "Intermediate";
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,7 @@ class _ProfileSettingsState extends State<ProfileSettings> {
                       "\$ / Hour",
                       style: TextStyle(fontSize: 27),
                     ),
-                  )
+                  ),
                 ],
               ),
               Padding(

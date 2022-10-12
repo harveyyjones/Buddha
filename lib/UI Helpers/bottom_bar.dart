@@ -1,13 +1,14 @@
 import 'package:buddha/UI%20Helpers/constants.dart';
-import 'package:buddha/UI/own_profile_screen.dart';
+import 'package:buddha/UI/UI%20For%20Tutors/own_profile_screen_tutors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 import '../UI/home_screen.dart';
+import '../UI/notifications_screen.dart';
 
 class BottomBar extends StatefulWidget {
- int selectedIndex;
+  int selectedIndex;
 
   BottomBar({super.key, required this.selectedIndex});
 
@@ -17,7 +18,11 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
   var _index = 0;
-  List _pagesToNavigateTo = [HomeScreen(), OwnProfileScreen()];
+  List _pagesToNavigateTo = [
+    HomeScreen(),
+    NotificationsScreen(),
+    OwnProfileScreenTutors()
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,10 +54,21 @@ class _BottomBarState extends State<BottomBar> {
                 )),
             BottomNavigationBarItem(
                 activeIcon: Icon(
+                  Icons.notifications_none_outlined,
+                  size: 60,
+                ),
+                label: "Notifications",
+                icon: Icon(
+                  size: 50,
+                  Icons.notifications_none_outlined,
+                  color: Colors.black,
+                )),
+            BottomNavigationBarItem(
+                activeIcon: Icon(
                   Icons.person,
                   size: 60,
                 ),
-                label: "Settings",
+                label: "Profile",
                 icon: Icon(
                   size: 50,
                   Icons.person,

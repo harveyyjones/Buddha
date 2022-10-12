@@ -4,7 +4,7 @@ import 'package:buddha/UI%20Helpers/constants.dart';
 import 'package:buddha/UI/home_screen.dart';
 import 'package:buddha/main.dart';
 import 'package:buddha/UI/register_screen.dart';
-import 'package:buddha/UI/sign_in_social.dart';
+import 'package:buddha/UI%20Helpers/sign_in_social.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
