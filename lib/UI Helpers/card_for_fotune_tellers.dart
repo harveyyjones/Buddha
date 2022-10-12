@@ -31,6 +31,7 @@ class _CardForFortuneTellersState extends State<CardForFortuneTellers> {
         SizedBox(
           height: 10,
         ),
+        //deneme
         Text(
           "Alica Keys",
           style: TextStyle(
